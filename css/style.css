@@ -2664,3 +2664,477 @@ html.lenis, html.lenis body {
     max-width: 100%;
   }
 }
+
+/* ==========================================================================
+   AUTHORIZED BRAND PARTNERS SECTION
+   ========================================================================== */
+.brands-section {
+  padding-block: 90px;
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+.brands-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 48px;
+}
+
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.brand-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s var(--ease-spring), box-shadow 0.35s ease, border-color 0.35s ease;
+  position: relative;
+}
+
+.brand-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-gold);
+  box-shadow: 0 16px 36px -10px rgba(179, 134, 79, 0.16);
+}
+
+.brand-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.brand-origin-pill {
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 9px;
+  background: #F4EFE6;
+  color: var(--accent-gold-dark);
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(179, 134, 79, 0.25);
+}
+
+.brand-verified-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.brand-logo-text {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.brand-specialty {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent-gold-dark);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.brand-summary {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .brands-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .brands-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .brands-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   PROFESSIONAL TRADE CONCIERGE (Architects & Interior Designers)
+   ========================================================================== */
+.trade-section {
+  padding-block: 90px;
+  background-color: var(--bg-primary);
+}
+
+.trade-banner-card {
+  background: radial-gradient(120% 120% at 85% 15%, #2B241D 0%, #16120E 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-xl);
+  padding: clamp(36px, 5vw, 64px);
+  color: #F8F6F1;
+  box-shadow: var(--shadow-3d);
+  position: relative;
+  overflow: hidden;
+}
+
+.trade-banner-card::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(179, 134, 79, 0.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.trade-banner-card .section-label {
+  color: var(--accent-gold-light);
+}
+
+.trade-banner-card .section-title-huge {
+  color: #FFFFFF;
+}
+
+.trade-banner-card .section-lead-text {
+  color: #DDD4C6;
+  max-width: 800px;
+}
+
+.trade-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin-block: 40px;
+}
+
+.trade-feature-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.trade-feature-item:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(179, 134, 79, 0.35);
+}
+
+.trade-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(179, 134, 79, 0.16);
+  border: 1px solid rgba(179, 134, 79, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold-light);
+  flex-shrink: 0;
+}
+
+.trade-feature-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+}
+
+.trade-feature-desc {
+  font-size: 0.86rem;
+  color: #C2B8A8;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.trade-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.trade-note {
+  font-size: 0.84rem;
+  color: #A89E90;
+  font-style: italic;
+}
+
+@media (max-width: 860px) {
+  .trade-features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   ARCHITECTURAL FAQ ACCORDION
+   ========================================================================== */
+.faq-section {
+  padding-block: 90px;
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.faq-header {
+  text-align: center;
+  max-width: 760px;
+  margin-inline: auto;
+  margin-bottom: 48px;
+}
+
+.faq-accordion {
+  max-width: 860px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faq-item {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-item.active {
+  border-color: var(--accent-gold);
+  box-shadow: 0 8px 24px rgba(179, 134, 79, 0.1);
+  background: #FFFFFF;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 20px 24px;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.faq-question:hover {
+  color: var(--accent-gold-dark);
+}
+
+.faq-question-text {
+  flex: 1;
+}
+
+.faq-toggle-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: transform 0.35s var(--ease-spring), background 0.3s ease, color 0.3s ease;
+}
+
+.faq-item.active .faq-toggle-icon {
+  transform: rotate(45deg);
+  background: var(--accent-gold);
+  color: #FFFFFF;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s var(--ease-spring);
+}
+
+.faq-item.active .faq-answer {
+  max-height: 280px;
+}
+
+.faq-answer-inner {
+  padding: 0 24px 22px 24px;
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(28, 24, 20, 0.06);
+  padding-top: 14px;
+}
+
+/* ==========================================================================
+   STICKY MOBILE CONVERSION BAR (1-Tap Call, WhatsApp & Navigation)
+   ========================================================================== */
+.mobile-action-bar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 68px;
+  }
+
+  .floating-whatsapp-btn {
+    bottom: 78px !important;
+  }
+
+  .mobile-action-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 998;
+    background: rgba(20, 17, 14, 0.94);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 8px 12px;
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
+    gap: 8px;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .mobile-action-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 10px;
+    border-radius: var(--radius-pill);
+    background: rgba(255, 255, 255, 0.08);
+    color: #F8F6F1;
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .mobile-action-btn:active {
+    transform: scale(0.96);
+  }
+
+  .mobile-action-btn.mobile-action-primary {
+    flex: 1.35;
+    background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-dark) 100%);
+    color: #FFFFFF;
+    border: none;
+    box-shadow: 0 4px 14px rgba(179, 134, 79, 0.4);
+  }
+}
+
+/* ==========================================================================
+   Print & Client PDF Presentation Stylesheet (Figma-Quality Export)
+   ========================================================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 10mm;
+  }
+
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    text-shadow: none !important;
+  }
+
+  html, body {
+    background: #FFFFFF !important;
+    color: #1C1814 !important;
+    height: auto !important;
+    overflow: visible !important;
+    font-size: 11pt;
+  }
+
+  #scroll-progress,
+  .mobile-toggle,
+  .mobile-drawer,
+  .nav-cta-group,
+  .quick-specs-modal {
+    display: none !important;
+  }
+
+  .site-header {
+    position: static !important;
+    background: #F8F6F1 !important;
+    border-bottom: 1px solid #D4C5A9 !important;
+    padding: 12px 20px !important;
+    box-shadow: none !important;
+  }
+
+  .hero-section {
+    min-height: auto !important;
+    padding-top: 30px !important;
+    padding-bottom: 40px !important;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .hero-bottom-scroll-track {
+    height: auto !important;
+  }
+
+  .hero-bottom-bar {
+    position: static !important;
+    margin-top: 24px !important;
+    box-shadow: none !important;
+    border: 1px solid #D4C5A9 !important;
+  }
+
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+
+  .hero-3d-card,
+  .product-3d-card,
+  .discipline-card,
+  .showroom-card,
+  .estimator-card,
+  .spec-table-row {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    box-shadow: 0 2px 8px rgba(38, 30, 24, 0.06) !important;
+  }
+
+  .disciplines-section,
+  .showcase-section,
+  .material-studio-section,
+  .standards-section,
+  .showroom-section,
+  .estimator-section {
+    padding-block: 40px !important;
+  }
+}
+

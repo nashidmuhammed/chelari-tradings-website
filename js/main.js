@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu();
   initMobileDisciplinesHorizontalScroll();
   initScrollProgress();
+  initFaqAccordion();
   initScrollReveal();
 });
 
@@ -407,7 +408,7 @@ function initQuickSpecsModal() {
 
     if (modalInquire) {
       const msg = encodeURIComponent(`Hello Chelari Tradings, I am interested in inquiring about "${data.title}" from your catalog. Could you share price and availability?`);
-      modalInquire.href = `https://wa.me/919846000000?text=${msg}`;
+      modalInquire.href = `https://wa.me/919072555257?text=${msg}`;
     }
 
     modal.classList.add('open');
@@ -478,7 +479,7 @@ function initProjectEstimator() {
         `Please share your digital catalog and let me know when we can connect!`;
 
       // Chelari Tradings official inquiry link
-      whatsappBtn.href = `https://wa.me/919846000000?text=${encodeURIComponent(text)}`;
+      whatsappBtn.href = `https://wa.me/919072555257?text=${encodeURIComponent(text)}`;
     }
   }
 
@@ -638,10 +639,15 @@ function initScrollReveal() {
     '.material-studio-grid',
     '.specs-intro',
     '.specs-grid',
+    '.brands-header',
+    '.brands-grid',
+    '.trade-banner-card',
     '.showroom-card',
     '.estimator-card',
     '.reviews-header',
     '.review-cards-grid',
+    '.faq-header',
+    '.faq-accordion',
     '.footer-top-grid'
   ];
 
@@ -650,7 +656,7 @@ function initScrollReveal() {
 
   targets.forEach(el => {
     el.classList.add('reveal-on-scroll');
-    if (el.classList.contains('products-grid') || el.classList.contains('disciplines-list') || el.classList.contains('review-cards-grid')) {
+    if (el.classList.contains('products-grid') || el.classList.contains('disciplines-list') || el.classList.contains('review-cards-grid') || el.classList.contains('brands-grid')) {
       el.classList.add('stagger-group');
     }
   });
@@ -687,6 +693,48 @@ function initScrollReveal() {
       }
     }, { passive: true });
   }
+}
+
+/* ==========================================================================
+   10. Architectural Specifications FAQ Accordion System
+   ========================================================================== */
+function initFaqAccordion() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  if (!faqItems.length) return;
+
+  faqItems.forEach(item => {
+    const questionBtn = item.querySelector('.faq-question');
+    if (!questionBtn) return;
+
+    questionBtn.addEventListener('click', () => {
+      const isAlreadyActive = item.classList.contains('active');
+
+      // Close all other accordion items for clean accordion UX
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.classList.remove('active');
+          const btn = otherItem.querySelector('.faq-question');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Toggle current item
+      if (isAlreadyActive) {
+        item.classList.remove('active');
+        questionBtn.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('active');
+        questionBtn.setAttribute('aria-expanded', 'true');
+      }
+
+      // Re-calculate Lenis height if smooth scroll is running
+      if (window.lenisInstance) {
+        setTimeout(() => {
+          window.lenisInstance.resize();
+        }, 360);
+      }
+    });
+  });
 }
 
 
