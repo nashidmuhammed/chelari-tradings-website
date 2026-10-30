@@ -31,12 +31,13 @@ function initLenisSmoothScroll() {
   if (prefersReducedMotion || typeof Lenis === 'undefined') return;
 
   lenisInstance = new Lenis({
-    duration: 1.15,
+    duration: 1.25,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     direction: 'vertical',
     smooth: true,
     smoothTouch: false,
-    wheelMultiplier: 1.0,
+    wheelMultiplier: 1.1,
+    touchMultiplier: 1.5,
   });
 
   window.lenisInstance = lenisInstance;
@@ -55,26 +56,27 @@ function initLenisSmoothScroll() {
         const targetEl = document.querySelector(targetId);
         if (targetEl) {
           e.preventDefault();
-          lenisInstance.scrollTo(targetEl, { offset: -70, duration: 1.15 });
+          lenisInstance.scrollTo(targetEl, { offset: -70, duration: 1.25 });
         }
       }
     });
   });
 
-  // Sync scroll progress and header
-  lenisInstance.on('scroll', () => {
-    updateScrollStates();
+  // Sync scroll progress, header, and parallax
+  lenisInstance.on('scroll', (e) => {
+    updateScrollStates(e.scroll);
+    updateParallaxElements(e.scroll);
   });
 }
 
 /* ==========================================================================
    1. Scroll Header & Progress Bar
    ========================================================================== */
-function updateScrollStates() {
-  const scrollY = window.scrollY || (lenisInstance ? lenisInstance.scroll : 0);
+function updateScrollStates(currentScroll) {
+  const scrollY = currentScroll !== undefined ? currentScroll : (window.scrollY || (lenisInstance ? lenisInstance.scroll : 0));
   const header = document.querySelector('.site-header');
   if (header) {
-    if (scrollY > 40) {
+    if (scrollY > 30) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
@@ -85,8 +87,8 @@ function updateScrollStates() {
   if (progressBar) {
     const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
     if (totalHeight > 0) {
-      const progress = (scrollY / totalHeight) * 100;
-      progressBar.style.width = `${progress}%`;
+      const progress = Math.min(100, Math.max(0, (scrollY / totalHeight) * 100));
+      progressBar.style.width = `${progress.toFixed(2)}%`;
     }
   }
 }
@@ -629,8 +631,44 @@ function initMobileDisciplinesHorizontalScroll() {
 }
 
 /* ==========================================================================
-   9. Framer-Style Scroll Reveal & Parallax Motion
+   9. Framer-Style Scroll Reveal & Multi-Layer Parallax Engine
    ========================================================================== */
+function updateParallaxElements(currentScroll) {
+  const scrollY = currentScroll !== undefined ? currentScroll : window.scrollY;
+  const vh = window.innerHeight;
+
+  // 1. Hero Luxury Interior Backdrop
+  const heroBackdrop = document.querySelector('.hero-backdrop-img');
+  if (heroBackdrop && scrollY <= vh * 1.5) {
+    const heroY = (scrollY * 0.22).toFixed(1);
+    heroBackdrop.style.transform = `translate3d(0, ${heroY}px, 0) scale(1.05)`;
+  }
+
+  // 2. Project Estimator Cabinetry Backdrop
+  const estimatorSection = document.querySelector('.section-estimator');
+  const estimatorBackdrop = document.querySelector('.estimator-backdrop-img');
+  if (estimatorSection && estimatorBackdrop) {
+    const rect = estimatorSection.getBoundingClientRect();
+    if (rect.top < vh && rect.bottom > 0) {
+      const progress = (vh - rect.top) / (vh + rect.height);
+      const estY = ((progress - 0.5) * 60).toFixed(1);
+      estimatorBackdrop.style.transform = `translate3d(0, ${estY}px, 0) scale(1.08)`;
+    }
+  }
+
+  // 3. Testimonials Sculpture Backdrop
+  const testimonialsSection = document.querySelector('.section-testimonials');
+  const testimonialsBackdrop = document.querySelector('.testimonials-backdrop-img');
+  if (testimonialsSection && testimonialsBackdrop) {
+    const rect = testimonialsSection.getBoundingClientRect();
+    if (rect.top < vh && rect.bottom > 0) {
+      const progress = (vh - rect.top) / (vh + rect.height);
+      const testY = ((progress - 0.5) * 60).toFixed(1);
+      testimonialsBackdrop.style.transform = `translate3d(0, ${testY}px, 0) scale(1.08)`;
+    }
+  }
+}
+
 function initScrollReveal() {
   const revealSelectors = [
     '.disciplines-intro',
@@ -654,11 +692,21 @@ function initScrollReveal() {
   ];
 
   const targets = document.querySelectorAll(revealSelectors.join(', '));
-  if (!targets.length) return;
+  if (!targets.length) {
+    window.addEventListener('scroll', () => updateParallaxElements(), { passive: true });
+    return;
+  }
 
   targets.forEach(el => {
     el.classList.add('reveal-on-scroll');
-    if (el.classList.contains('products-grid') || el.classList.contains('disciplines-list') || el.classList.contains('review-cards-grid') || el.classList.contains('brands-grid')) {
+    if (
+      el.classList.contains('products-grid') || 
+      el.classList.contains('disciplines-list') || 
+      el.classList.contains('review-cards-grid') || 
+      el.classList.contains('brands-grid') ||
+      el.classList.contains('specs-grid') ||
+      el.classList.contains('material-studio-grid')
+    ) {
       el.classList.add('stagger-group');
     }
   });
@@ -672,29 +720,28 @@ function initScrollReveal() {
     });
   }, {
     root: null,
-    threshold: 0.1,
+    threshold: 0.08,
     rootMargin: '0px 0px -40px 0px'
   });
 
   targets.forEach(el => observer.observe(el));
 
-  // Subtle Smooth Parallax on Hero Backdrop Image
-  const heroBackdrop = document.querySelector('.hero-backdrop-img');
-  if (heroBackdrop) {
+  // If Lenis is not active, fallback to native passive scroll listener for parallax
+  if (!window.lenisInstance) {
     let ticking = false;
     window.addEventListener('scroll', () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          const scrollY = window.scrollY;
-          if (scrollY < window.innerHeight * 1.5) {
-            heroBackdrop.style.transform = `translate3d(0, ${(scrollY * 0.18).toFixed(1)}px, 0) scale(1.04)`;
-          }
+          updateParallaxElements();
           ticking = false;
         });
         ticking = true;
       }
     }, { passive: true });
   }
+
+  // Initial calculation on page render
+  updateParallaxElements();
 }
 
 /* ==========================================================================

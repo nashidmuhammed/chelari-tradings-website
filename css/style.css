@@ -135,9 +135,11 @@ ul, ol {
   left: 0;
   width: 0%;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent-gold), var(--accent-gold-light), #fff);
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-gold-light), #ffffff);
+  box-shadow: 0 0 12px rgba(179, 134, 79, 0.5);
   z-index: 9999;
-  transition: width 0.1s linear;
+  pointer-events: none;
+  will-change: width;
 }
 
 /* --- Navigation Header --- */
@@ -459,33 +461,45 @@ html.lenis, html.lenis body {
   }
 }
 
-/* Scroll-Driven Reveal Base (Framer Soft-Focus Rack into View) */
+/* Scroll-Driven Reveal Base (Clean GPU-Accelerated Glide) */
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(36px) scale(0.985);
-  filter: blur(8px);
+  transform: translateY(28px);
   transition: 
-    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), 
-    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform, filter;
+    opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), 
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 .reveal-on-scroll.is-revealed {
   opacity: 1;
-  transform: translateY(0) scale(1);
-  filter: blur(0px);
+  transform: translateY(0);
+}
+
+/* Stagger cascade children (Luxurious Sequential Entrance) */
+.stagger-group > * {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: 
+    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), 
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.stagger-group.is-revealed > * {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Stagger cascade delays */
 .stagger-group > *:nth-child(1) { transition-delay: 0.04s; }
-.stagger-group > *:nth-child(2) { transition-delay: 0.12s; }
-.stagger-group > *:nth-child(3) { transition-delay: 0.20s; }
-.stagger-group > *:nth-child(4) { transition-delay: 0.28s; }
-.stagger-group > *:nth-child(5) { transition-delay: 0.36s; }
-.stagger-group > *:nth-child(6) { transition-delay: 0.44s; }
-.stagger-group > *:nth-child(7) { transition-delay: 0.52s; }
-.stagger-group > *:nth-child(8) { transition-delay: 0.60s; }
+.stagger-group > *:nth-child(2) { transition-delay: 0.10s; }
+.stagger-group > *:nth-child(3) { transition-delay: 0.16s; }
+.stagger-group > *:nth-child(4) { transition-delay: 0.22s; }
+.stagger-group > *:nth-child(5) { transition-delay: 0.28s; }
+.stagger-group > *:nth-child(6) { transition-delay: 0.34s; }
+.stagger-group > *:nth-child(7) { transition-delay: 0.40s; }
+.stagger-group > *:nth-child(8) { transition-delay: 0.46s; }
 
 /* --- Hero Section --- */
 .hero-section {
@@ -1921,10 +1935,11 @@ html.lenis, html.lenis body {
 
 .estimator-backdrop-img {
   width: 100%;
-  height: 100%;
+  height: 115%;
   object-fit: cover;
   object-position: center;
-  transform: scale(1.03);
+  transform: scale(1.05);
+  will-change: transform;
 }
 
 .estimator-backdrop-overlay {
@@ -2124,10 +2139,11 @@ html.lenis, html.lenis body {
 
 .testimonials-backdrop-img {
   width: 100%;
-  height: 100%;
+  height: 115%;
   object-fit: cover;
   object-position: center 30%;
-  transform: scale(1.02);
+  transform: scale(1.05);
+  will-change: transform;
 }
 
 .testimonials-backdrop-overlay {
@@ -2895,12 +2911,64 @@ html.lenis, html.lenis body {
     grid-template-columns: 1fr;
     gap: 6px;
   }
+  /* Estimator Mobile Compact Layout */
+  .estimator-card {
+    padding: 24px 18px;
+    border-radius: var(--radius-lg);
+  }
+  .estimator-header {
+    margin-bottom: 20px;
+  }
+  .estimator-header .section-lead-text {
+    display: none;
+  }
+  .estimator-step-group {
+    margin-bottom: 18px;
+  }
+  .estimator-step-title {
+    font-size: 0.92rem;
+    margin-bottom: 10px;
+  }
+  .estimator-options-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .estimator-btn-choice {
+    padding: 10px 8px;
+    font-size: 0.8rem;
+    flex-direction: row;
+    gap: 6px;
+    justify-content: center;
+  }
+  .estimator-btn-choice svg {
+    width: 16px;
+    height: 16px;
+  }
+  .estimator-checkbox-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .estimator-check-pill {
+    padding: 7px 12px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    border-radius: var(--radius-pill);
+  }
   .estimator-cta-bar {
+    margin-top: 20px;
+    padding-top: 18px;
     flex-direction: column;
     align-items: stretch;
     text-align: center;
+    gap: 12px;
+  }
+  .estimator-summary-text {
+    font-size: 0.95rem;
   }
   .btn-whatsapp-inquire {
+    padding: 12px 20px;
+    font-size: 0.9rem;
     justify-content: center;
   }
   .stage-info-tray {
@@ -3027,6 +3095,7 @@ html.lenis, html.lenis body {
 
   .brand-card {
     position: sticky;
+    opacity: 1 !important;
     background: #ffffff;
     border: 1px solid rgba(212, 197, 169, 0.45);
     border-radius: var(--radius-lg);
@@ -3344,6 +3413,27 @@ html.lenis, html.lenis body {
 }
 
 /* ==========================================================================
+   Accessibility: Reduced Motion Preference
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-on-scroll,
+  .stagger-group > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
    Print & Client PDF Presentation Stylesheet (Seamless Continuous Master View)
    ========================================================================== */
 @media print {
@@ -3376,7 +3466,8 @@ html.lenis, html.lenis body {
     box-shadow: none !important;
   }
 
-  .reveal-on-scroll {
+  .reveal-on-scroll,
+  .stagger-group > * {
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
