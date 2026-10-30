@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Review & Gift Claim — Chelari Tradings</title>
+  <meta name="description" content="Share your showroom experience and claim your gift from Chelari Tradings. Copy your review text, post on Google Reviews, and submit your screenshot for admin verification.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo_black_nav.png">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Event Specific Stylesheet -->
+  <link rel="stylesheet" href="css/event.css">
+</head>
+<body>
+
+  <!-- Top Scroll Progress Indicator -->
+  <div id="scroll-progress"></div>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand-logo" id="nav-brand-logo" aria-label="Chelari Tradings Home">
+        <img src="assets/images/logo_black_nav.png" alt="Chelari Tradings" width="130" height="58">
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-links" id="desktop-nav-menu" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html#showcase" class="nav-link">Collection</a>
+        <a href="index.html#brands" class="nav-link">Brands</a>
+        <a href="index.html#showroom" class="nav-link">Showroom</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="event.html" class="nav-link active" style="color: var(--accent-gold); font-weight: 600;">Gift Event</a>
+      </nav>
+
+      <!-- Desktop CTA -->
+      <div class="nav-cta-group">
+        <a href="index.html#estimator" class="btn-pill btn-pill-outline">Get Quote</a>
+        <a href="https://wa.me/919072555257?text=Hello%20Chelari%20Tradings%2C%20I%20have%20a%20question%20about%20the%20Gift%20Event" target="_blank" rel="noopener" class="btn-pill btn-pill-primary">
+          <span>WhatsApp Support</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Open Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobile-nav-drawer" aria-hidden="true">
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="index.html#showcase" class="nav-link">Collection</a>
+      <a href="index.html#brands" class="nav-link">Authorized Brands</a>
+      <a href="index.html#showroom" class="nav-link">Showroom Tour</a>
+      <a href="about.html" class="nav-link">About Chelari</a>
+      <a href="event.html" class="nav-link active" style="color: var(--accent-gold); font-weight: 600;">Customer Gift Event</a>
+    </nav>
+    <a href="https://wa.me/919072555257?text=Hello%20Chelari%20Tradings%2C%20I%20would%20like%20to%20inquire%20about%20the%20Gift%20Event" class="btn-pill btn-pill-primary" style="justify-content: center; width: 100%;">
+      Message Admin on WhatsApp
+    </a>
+  </div>
+
+  <main>
+    <!-- Event Hero Section -->
+    <section class="event-hero">
+      <div class="event-hero-inner">
+        <div class="section-label">Showroom Gift Event</div>
+
+        <h1 class="event-hero-title">
+          Received a gift from <span class="text-gold">Chelari Tradings?</span>
+        </h1>
+
+        <p class="event-hero-subtitle">
+          Follow the three steps below to copy your review, post it on Google Reviews, and submit your screenshot for admin verification.
+        </p>
+      </div>
+    </section>
+
+    <!-- Interactive Stepper Indicator -->
+    <div class="event-stepper-wrap">
+      <nav class="event-stepper" aria-label="Review Submission Steps">
+        <div class="stepper-step active" data-step="1">
+          <span class="stepper-num">1</span>
+          <span>Copy Review</span>
+        </div>
+        <div class="stepper-step" data-step="2">
+          <span class="stepper-num">2</span>
+          <span>Post on Google</span>
+        </div>
+        <div class="stepper-step" data-step="3">
+          <span class="stepper-num">3</span>
+          <span>Submit Screenshot</span>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Main Step-by-Step Flow Container -->
+    <div class="event-main-container">
+
+      <!-- ================================================================== -->
+      <!-- STEP 1: Copy Review Content -->
+      <!-- ================================================================== -->
+      <section class="event-step-card" id="step-section-1">
+        <div class="step-card-header">
+          <div class="step-card-badge">01</div>
+          <div class="step-card-info">
+            <h2>Select & Copy Your Review</h2>
+            <p>Select any of the review options below or edit the text directly before copying.</p>
+          </div>
+        </div>
+
+        <!-- Template Selector Pills -->
+        <div class="template-selector-title">Select Template:</div>
+        <div class="template-pills-wrap">
+          <button type="button" class="template-pill active" data-template="template1">
+            <span>General Showroom Experience</span>
+          </button>
+          <button type="button" class="template-pill" data-template="template2">
+            <span>Glass, Plywood & Hardware</span>
+          </button>
+          <button type="button" class="template-pill" data-template="template3">
+            <span>Modular Kitchen & Appliances</span>
+          </button>
+        </div>
+
+        <!-- Review Textarea Box -->
+        <div class="review-preview-box" id="review-preview-box">
+          <svg class="review-quote-icon" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+          </svg>
+
+          <div class="review-preview-stars" aria-label="5 star rating">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#F5A623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#F5A623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#F5A623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#F5A623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#F5A623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span>5.0 Rating</span>
+          </div>
+
+          <textarea 
+            id="review-content-textarea" 
+            class="review-textarea" 
+            aria-label="Review Content"
+          >I received a gift from Chelari Tradings. Great showroom experience in Chelari with quality architectural glass, 100% Gurjan marine plywood, designer door handles, and modern kitchen accessories. The staff was very helpful and professional.</textarea>
+
+          <div class="review-box-footer">
+            <span id="review-char-count">0 characters</span>
+            <span>You can personalize this text before copying</span>
+          </div>
+        </div>
+
+        <!-- Step 1 Action Buttons -->
+        <div class="step1-actions-row">
+          <button type="button" class="btn-copy-review" id="btn-copy-review">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>Copy Review Text</span>
+          </button>
+
+          <button type="button" class="btn-combo-action" id="btn-copy-and-open">
+            <span>Copy & Open Google Review</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- STEP 2: Post on Google Review -->
+      <!-- ================================================================== -->
+      <section class="event-step-card" id="step-section-2">
+        <div class="step-card-header">
+          <div class="step-card-badge">02</div>
+          <div class="step-card-info">
+            <h2>Post Review on Google</h2>
+            <p>Open our Google profile, paste your copied text into the review box, and submit.</p>
+          </div>
+        </div>
+
+        <div class="google-card-grid">
+          <!-- CTA Action Card -->
+          <div class="google-review-cta-box">
+            <div class="google-business-meta">
+              <div class="google-logo-badge">
+                <svg width="22" height="22" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                  <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"/>
+                  <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                  <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="google-business-name">Chelari Tradings</div>
+                <div class="google-business-sub">Calicut Bypass, Chelari, Malappuram</div>
+              </div>
+            </div>
+
+            <a 
+              href="https://maps.google.com/?q=Chelari+Tradings" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn-google-direct" 
+              id="btn-open-google"
+            >
+              <span>Open Google Reviews</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Micro Guide List -->
+          <ul class="google-steps-guide">
+            <li class="google-guide-item">
+              <span class="guide-step-icon">1</span>
+              <span>Tap in the Google review box and paste the copied review text.</span>
+            </li>
+            <li class="google-guide-item">
+              <span class="guide-step-icon">2</span>
+              <span>Select 5 stars rating and tap Post.</span>
+            </li>
+            <li class="google-guide-item">
+              <span class="guide-step-icon">3</span>
+              <span>Take a screenshot of your published review on your phone or computer.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- STEP 3: Upload Screenshot & Submit to Admin -->
+      <!-- ================================================================== -->
+      <section class="event-step-card" id="step-section-3">
+        <div class="step-card-header">
+          <div class="step-card-badge">03</div>
+          <div class="step-card-info">
+            <h2>Upload Screenshot & Submit Details</h2>
+            <p>Upload the screenshot of your review and provide your contact details for verification.</p>
+          </div>
+        </div>
+
+        <form id="event-claim-form" novalidate>
+          <!-- Upload Zone -->
+          <div class="upload-zone-wrapper">
+            <div class="upload-dropzone" id="upload-dropzone">
+              <input 
+                type="file" 
+                id="screenshot-file" 
+                name="screenshot" 
+                accept="image/png, image/jpeg, image/jpg, image/webp" 
+                aria-label="Upload Review Screenshot"
+              >
+              
+              <div id="upload-prompt-content">
+                <div class="upload-prompt-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                  </svg>
+                </div>
+                <div class="upload-prompt-title">Drag and drop your review screenshot here</div>
+                <div class="upload-prompt-sub">Supports PNG, JPG, or WebP (max 10MB)</div>
+                <span class="upload-browse-btn">Browse File</span>
+              </div>
+            </div>
+
+            <!-- Preview Card (shown once image is chosen) -->
+            <div class="upload-preview-card" id="upload-preview-card">
+              <img src="" alt="Screenshot preview" class="preview-thumb-img" id="preview-thumb-img">
+              <div class="preview-file-details">
+                <div class="preview-file-name" id="preview-file-name">screenshot.png</div>
+                <div class="preview-file-size" id="preview-file-size">1.2 MB</div>
+              </div>
+              <button type="button" class="preview-remove-btn" id="preview-remove-btn">
+                Remove
+              </button>
+            </div>
+          </div>
+
+          <!-- Customer Form Fields -->
+          <div class="event-form-grid">
+            <div>
+              <label class="form-field-label" for="user-name">
+                Full Name <span class="required">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="user-name" 
+                name="name" 
+                class="form-field-input" 
+                placeholder="Your full name" 
+                required
+              >
+            </div>
+
+            <div>
+              <label class="form-field-label" for="user-phone">
+                WhatsApp / Mobile Number <span class="required">*</span>
+              </label>
+              <input 
+                type="tel" 
+                id="user-phone" 
+                name="phone" 
+                class="form-field-input" 
+                placeholder="+91 98765 43210" 
+                required
+              >
+              <div class="form-field-hint">Your gift confirmation will be sent to this number</div>
+            </div>
+
+            <div>
+              <label class="form-field-label" for="user-google-name">
+                Google Reviewer Account Name <span class="required">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="user-google-name" 
+                name="google_name" 
+                class="form-field-input" 
+                placeholder="Name visible on your Google review" 
+                required
+              >
+            </div>
+
+            <div>
+              <label class="form-field-label" for="user-email">
+                Email Address <span style="color: var(--text-light); font-weight: 400;">(Optional)</span>
+              </label>
+              <input 
+                type="email" 
+                id="user-email" 
+                name="email" 
+                class="form-field-input" 
+                placeholder="name@example.com"
+              >
+            </div>
+
+            <div class="form-group-full">
+              <label class="form-field-label" for="user-note">
+                Gift or Showroom Note <span style="color: var(--text-light); font-weight: 400;">(Optional)</span>
+              </label>
+              <input 
+                type="text" 
+                id="user-note" 
+                name="note" 
+                class="form-field-input" 
+                placeholder="Showroom token or visit date"
+              >
+            </div>
+          </div>
+
+          <!-- Submit Buttons -->
+          <div class="form-submit-bar">
+            <button type="submit" class="btn-submit-event" id="btn-submit-event">
+              <span>Submit Details & Screenshot</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+
+            <!-- Instant WhatsApp Fallback -->
+            <div class="instant-wa-fallback">
+              Prefer to submit directly on WhatsApp? 
+              <a href="https://wa.me/919072555257?text=Hello%20Chelari%20Tradings%2C%20I%20have%20posted%20a%20Google%20review%20and%20would%20like%20to%20share%20my%20screenshot%20for%20verification." target="_blank" rel="noopener">
+                Send screenshot on WhatsApp
+              </a>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!-- Trust & Transparency Features -->
+      <div class="event-trust-grid">
+        <div class="trust-card">
+          <div class="trust-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <div>
+            <h4>Showroom Verified</h4>
+            <p>Submissions are verified directly by our admin team at Chelari Tradings.</p>
+          </div>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <div>
+            <h4>Prompt Response</h4>
+            <p>Verification confirmations are sent via WhatsApp during showroom working hours.</p>
+          </div>
+        </div>
+
+        <div class="trust-card">
+          <div class="trust-card-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <div>
+            <h4>Privacy Protected</h4>
+            <p>Your contact details are kept confidential and used only for gift communication.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ====================================================================== -->
+  <!-- SUBMISSION CONFIRMATION MODAL -->
+  <!-- ====================================================================== -->
+  <div class="modal-overlay" id="success-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="success-modal-card">
+      <div class="success-badge-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+
+      <h3 class="success-title" id="modal-title">Submission Received</h3>
+      
+      <p class="success-lead">
+        Thank you for sharing your review for <strong>Chelari Tradings</strong>. Our team has received your screenshot and details. Once verified, your confirmation will be sent to your WhatsApp number.
+      </p>
+
+      <!-- Claim Receipt Details Box -->
+      <div class="claim-receipt-box">
+        <div class="claim-receipt-row">
+          <span class="receipt-label">Reference ID</span>
+          <span class="receipt-ref-code" id="receipt-claim-code">CT-GIFT-89241</span>
+        </div>
+        <div class="claim-receipt-row">
+          <span class="receipt-label">Customer Name</span>
+          <span class="receipt-val" id="receipt-name">Noushad</span>
+        </div>
+        <div class="claim-receipt-row">
+          <span class="receipt-label">WhatsApp Contact</span>
+          <span class="receipt-val" id="receipt-phone">+91 9072555257</span>
+        </div>
+        <div class="claim-receipt-row">
+          <span class="receipt-label">Status</span>
+          <span class="receipt-val" style="color: var(--accent-gold-dark);">Under Verification</span>
+        </div>
+      </div>
+
+      <!-- Modal Action Buttons -->
+      <div class="modal-actions-group">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn-modal-wa" id="modal-wa-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+          <span>Confirm on WhatsApp</span>
+        </a>
+
+        <a href="index.html" class="btn-modal-close" id="btn-close-modal">
+          Return to Showroom Home
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-mega-text" aria-hidden="true">CHELARI</div>
+
+      <div class="footer-top-grid">
+        <div class="footer-col-brand">
+          <img src="assets/images/logo_white_nav.png" alt="Chelari Tradings" class="footer-logo" width="140" height="64">
+          <p class="footer-tagline">
+            Specializing in high-performance Architectural Glass, IS:710 Marine Plywood, Designer Hardware, Modular Kitchen Systems, and Built-in Home Appliances.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://www.instagram.com/chelaritradings?mdxt=NmFubG5rajdydWVq" target="_blank" rel="noopener" class="social-circle-btn" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="https://chelaritradings.com" target="_blank" rel="noopener" class="social-circle-btn" aria-label="Official Website">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Disciplines</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html#showcase" class="footer-link">Architectural Glass</a></li>
+            <li><a href="index.html#showcase" class="footer-link">Marine Plywood & Louvres</a></li>
+            <li><a href="index.html#showcase" class="footer-link">Designer Door Hardware</a></li>
+            <li><a href="index.html#showcase" class="footer-link">Biometric Smart Locks</a></li>
+            <li><a href="index.html#showcase" class="footer-link">Modular Kitchen Accessories</a></li>
+            <li><a href="index.html#showcase" class="footer-link">Built-in Kitchen Appliances</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About Company</a></li>
+            <li><a href="event.html" class="footer-link">Gift Event</a></li>
+            <li><a href="index.html#estimator" class="footer-link">Project Estimator</a></li>
+            <li><a href="index.html#showroom" class="footer-link">Showroom Tour</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Showroom & Inquiries</h4>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>Chelari, Calicut Bypass, Malappuram, Kerala 676317</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <div style="line-height: 1.5;">
+              <div>Mob: <a href="tel:+919072555257" style="color: inherit; text-decoration: none;">+91 90725 55257</a>, <a href="tel:+919895075235" style="color: inherit; text-decoration: none;">+91 98950 75235</a></div>
+              <div style="color: var(--text-light); font-size: 0.88em;">Tel: <a href="tel:04942942656" style="color: inherit; text-decoration: none;">0494 2942656</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <span>© 2026 Chelari Tradings. All Rights Reserved.</span>
+        <span>Architectural Design & Material Curation • Kerala, India</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky Mobile Action Bar -->
+  <aside class="mobile-action-bar" id="mobile-action-bar" aria-label="Quick Contact Actions">
+    <a href="tel:+919072555257" class="mobile-action-btn" id="mobile-btn-call">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+      <span>Call</span>
+    </a>
+    <a href="https://wa.me/919072555257?text=Hello%20Chelari%20Tradings%2C%20I%20have%20submitted%20my%20review%20screenshot%20for%20verification." target="_blank" rel="noopener" class="mobile-action-btn mobile-action-primary" id="mobile-btn-whatsapp">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+      </svg>
+      <span>WhatsApp</span>
+    </a>
+    <a href="https://maps.google.com/?q=Chelari+Tradings" target="_blank" rel="noopener" class="mobile-action-btn" id="mobile-btn-maps">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+        <circle cx="12" cy="10" r="3"></circle>
+      </svg>
+      <span>Directions</span>
+    </a>
+  </aside>
+
+  <!-- Vendor & Core Scripts -->
+  <script src="js/vendor/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+  <!-- Event Specific Logic -->
+  <script src="js/event.js"></script>
+</body>
+</html>

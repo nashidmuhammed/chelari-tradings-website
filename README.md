@@ -43,10 +43,13 @@ Inspired by high-end architectural studios (such as Graft Studio) with bespoke 3
 chelaritradings-website/
 ├── index.html                     # Main interactive 3D landing page
 ├── about.html                     # Showroom heritage & standards page
+├── event.html                     # Marketing & customer gift reward review campaign page
 ├── css/
-│   └── style.css                  # Modern CSS design tokens, 3D tilt, and responsive layout
+│   ├── style.css                  # Modern CSS design tokens, 3D tilt, and responsive layout
+│   └── event.css                  # Event-specific styling, step flow, dropzone, and celebration modal
 ├── js/
-│   └── main.js                    # 3D Tilt, material switcher, specs modal, and WhatsApp generator
+│   ├── main.js                    # 3D Tilt, material switcher, specs modal, and WhatsApp generator
+│   └── event.js                   # 1-Click copy, Google Reviews redirect, screenshot upload & admin mail engine
 └── assets/
     └── images/
         ├── logo.png               # High-res master logo

@@ -1,0 +1,932 @@
+/* ==========================================================================
+   CHELARI TRADINGS — MARKETING & GIFT EVENT STYLESHEET
+   Clean, architectural, and responsive layout
+   ========================================================================== */
+
+/* --- Event Page Hero --- */
+.event-hero {
+  position: relative;
+  padding-top: calc(var(--nav-height) + 40px);
+  padding-bottom: 30px;
+  background-color: var(--bg-primary);
+  text-align: center;
+}
+
+.event-hero-inner {
+  max-width: 860px;
+  margin-inline: auto;
+  padding-inline: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.event-hero .section-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-inline: auto;
+  margin-bottom: 16px;
+}
+
+.event-hero .section-label::before,
+.event-hero .section-label::after {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background-color: var(--accent-gold);
+}
+
+.event-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 3.8vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-main);
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+  text-align: center;
+  width: 100%;
+}
+
+.event-hero-title .text-gold {
+  color: var(--accent-gold);
+}
+
+.event-hero-subtitle {
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  color: var(--text-muted);
+  max-width: 640px;
+  margin-inline: auto;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* --- Interactive Stepper Indicator --- */
+.event-stepper-wrap {
+  max-width: 860px;
+  margin-inline: auto;
+  margin-bottom: 36px;
+  padding: 0 20px;
+}
+
+.event-stepper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  padding: 6px;
+  box-shadow: var(--shadow-sm);
+}
+
+.stepper-step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.stepper-step.active {
+  background: var(--text-main);
+  color: #ffffff;
+}
+
+.stepper-step.completed {
+  background: rgba(179, 134, 79, 0.12);
+  color: var(--accent-gold-dark);
+}
+
+.stepper-num {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(28, 24, 20, 0.1);
+  color: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepper-step.active .stepper-num {
+  background: var(--accent-gold);
+  color: #ffffff;
+}
+
+.stepper-step.completed .stepper-num {
+  background: var(--accent-gold-dark);
+  color: #ffffff;
+}
+
+@media (max-width: 640px) {
+  .event-stepper {
+    border-radius: var(--radius-md);
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .stepper-step {
+    border-radius: var(--radius-sm);
+    justify-content: flex-start;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+/* --- Main Event Flow Container --- */
+.event-main-container {
+  max-width: 860px;
+  margin-inline: auto;
+  padding: 0 20px 80px;
+}
+
+/* Individual Step Section Cards */
+.event-step-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  padding: clamp(24px, 3.5vw, 40px);
+  margin-bottom: 28px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+/* Card Header */
+.step-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.step-card-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.step-card-info h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+
+.step-card-info p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* --- STEP 1: Content Copy Experience --- */
+.template-selector-title {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--text-light);
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+
+.template-pills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.template-pill {
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.template-pill:hover {
+  border-color: var(--border-medium);
+  color: var(--text-main);
+}
+
+.template-pill.active {
+  background: var(--text-main);
+  border-color: var(--text-main);
+  color: #ffffff;
+}
+
+/* Review Content Box */
+.review-preview-box {
+  position: relative;
+  background: #FAF8F5;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-bottom: 18px;
+  transition: border-color 0.25s ease;
+}
+
+.review-preview-box:focus-within {
+  border-color: var(--accent-gold);
+  background: #ffffff;
+}
+
+.review-quote-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  color: rgba(28, 24, 20, 0.08);
+  pointer-events: none;
+}
+
+.review-preview-stars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.review-preview-stars span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-left: 6px;
+}
+
+.review-textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  resize: vertical;
+  min-height: 90px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-main);
+  outline: none;
+}
+
+.review-box-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(28, 24, 20, 0.06);
+  font-size: 0.78rem;
+  color: var(--text-light);
+}
+
+/* Action Buttons Row for Step 1 */
+.step1-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.btn-copy-review {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: var(--radius-pill);
+  background: var(--text-main);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-copy-review:hover {
+  background: #000000;
+}
+
+.btn-copy-review.copied {
+  background: #1B8A4D;
+}
+
+.btn-combo-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-medium);
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-combo-action:hover {
+  background: #ffffff;
+  border-color: var(--accent-gold);
+  color: var(--text-main);
+}
+
+/* --- STEP 2: Google Review Card --- */
+.google-card-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .google-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.google-review-cta-box {
+  background: var(--bg-primary);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.google-business-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.google-logo-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.google-business-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-main);
+}
+
+.google-business-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.btn-google-direct {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 20px;
+  border-radius: var(--radius-pill);
+  background: #1A73E8;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.btn-google-direct:hover {
+  background: #1557b0;
+}
+
+.google-steps-guide {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.google-guide-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.86rem;
+  color: var(--text-main);
+  line-height: 1.45;
+}
+
+.guide-step-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  font-weight: 700;
+  font-size: 0.76rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* --- STEP 3: Screenshot Upload & Verification Form --- */
+.upload-zone-wrapper {
+  margin-bottom: 24px;
+}
+
+.upload-dropzone {
+  position: relative;
+  border: 2px dashed rgba(28, 24, 20, 0.15);
+  background: #FAF8F5;
+  border-radius: var(--radius-md);
+  padding: 28px 18px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.upload-dropzone:hover,
+.upload-dropzone.dragover {
+  border-color: var(--accent-gold);
+  background: rgba(179, 134, 79, 0.05);
+}
+
+.upload-dropzone input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.upload-prompt-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  border: 1px solid var(--border-subtle);
+}
+
+.upload-prompt-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.96rem;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.upload-prompt-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.upload-browse-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: #ffffff;
+  border: 1px solid var(--border-medium);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* Image Preview Container */
+.upload-preview-card {
+  display: none;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  align-items: center;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.preview-thumb-img {
+  width: 56px;
+  height: 56px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid var(--border-subtle);
+}
+
+.preview-file-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.preview-file-name {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.preview-file-size {
+  font-size: 0.74rem;
+  color: var(--text-light);
+  margin-top: 2px;
+}
+
+.preview-remove-btn {
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: #DC3545;
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.preview-remove-btn:hover {
+  background: #DC3545;
+  color: #ffffff;
+}
+
+/* Form Fields Grid */
+.event-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+@media (max-width: 640px) {
+  .event-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-group-full {
+  grid-column: 1 / -1;
+}
+
+.form-field-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.form-field-label .required {
+  color: #DC3545;
+  margin-left: 2px;
+}
+
+.form-field-input {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: var(--radius-md);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-main);
+  transition: border-color 0.2s ease, background 0.2s ease;
+  outline: none;
+}
+
+.form-field-input:focus {
+  background: #ffffff;
+  border-color: var(--accent-gold);
+}
+
+.form-field-hint {
+  font-size: 0.74rem;
+  color: var(--text-light);
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+/* Form Submission Bar */
+.form-submit-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn-submit-event {
+  width: 100%;
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  background: var(--text-main);
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.98rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-submit-event:hover {
+  background: #000000;
+}
+
+.btn-submit-event:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.instant-wa-fallback {
+  text-align: center;
+  padding: 12px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.instant-wa-fallback a {
+  color: var(--text-main);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* --- Trust / FAQ Section --- */
+.event-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+}
+
+@media (max-width: 768px) {
+  .event-trust-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.trust-card {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.trust-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--bg-primary);
+  color: var(--accent-gold-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.trust-card h4 {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 3px;
+}
+
+.trust-card p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* --- SUBMISSION CONFIRMATION MODAL --- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 17, 14, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.success-modal-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 500px;
+  border-radius: var(--radius-lg);
+  padding: clamp(24px, 4vw, 36px);
+  text-align: center;
+  position: relative;
+  transform: translateY(16px);
+  transition: transform 0.25s ease;
+  box-shadow: var(--shadow-lg);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-overlay.active .success-modal-card {
+  transform: translateY(0);
+}
+
+.success-badge-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #1B8A4D;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.success-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.success-lead {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+.claim-receipt-box {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.claim-receipt-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  padding: 6px 0;
+}
+
+.claim-receipt-row:not(:last-child) {
+  border-bottom: 1px solid rgba(28, 24, 20, 0.05);
+}
+
+.receipt-label {
+  color: var(--text-light);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.receipt-val {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.receipt-ref-code {
+  font-family: monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.modal-actions-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-modal-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: var(--radius-pill);
+  background: #25D366;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.btn-modal-wa:hover {
+  background: #20BA5A;
+}
+
+.btn-modal-close {
+  display: inline-block;
+  padding: 11px 18px;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+  font-weight: 500;
+  font-size: 0.86rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-modal-close:hover {
+  background: var(--bg-primary);
+  color: var(--text-main);
+}
+
+/* Floating Toast Notification */
+.event-toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--text-main);
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  font-size: 0.84rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+  z-index: 9990;
+}
+
+.event-toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.event-toast svg {
+  color: #25D366;
+}

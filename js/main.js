@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
   initScrollReveal();
   initTestimonialsCarousel();
+  initMobileBrandStackingEffect();
 });
 
 /* ==========================================================================
@@ -797,6 +798,65 @@ function initTestimonialsCarousel() {
     track.scrollLeft = scrollLeft - walk;
   });
 }
+
+/* ==========================================================================
+   Mobile Vertical 3D Brand Stacking Effect
+   ========================================================================== */
+function initMobileBrandStackingEffect() {
+  const cards = document.querySelectorAll('.brands-grid .brand-card');
+  if (!cards.length) return;
+
+  function updateCardStack() {
+    if (window.innerWidth > 768) {
+      cards.forEach(card => {
+        card.style.transform = '';
+        card.style.filter = '';
+      });
+      return;
+    }
+
+    const navHeight = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 76;
+
+    cards.forEach((card, index) => {
+      const nextCard = cards[index + 1];
+
+      if (nextCard) {
+        const nextRect = nextCard.getBoundingClientRect();
+        const nextPinTop = navHeight + 12 + (index + 1) * 10;
+
+        const distance = nextRect.top - nextPinTop;
+        const overlapWindow = 200;
+
+        if (distance <= overlapWindow && distance >= 0) {
+          const factor = (overlapWindow - distance) / overlapWindow;
+          const scale = 1 - factor * 0.05;
+          const brightness = 1 - factor * 0.12;
+          card.style.transform = `scale(${scale.toFixed(3)}) translateY(0)`;
+          card.style.filter = `brightness(${brightness.toFixed(2)})`;
+        } else if (distance < 0) {
+          card.style.transform = 'scale(0.95) translateY(0)';
+          card.style.filter = 'brightness(0.88)';
+        } else {
+          card.style.transform = 'scale(1) translateY(0)';
+          card.style.filter = 'brightness(1)';
+        }
+      } else {
+        card.style.transform = 'scale(1) translateY(0)';
+        card.style.filter = 'brightness(1)';
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateCardStack, { passive: true });
+  window.addEventListener('resize', updateCardStack, { passive: true });
+
+  if (window.lenisInstance) {
+    window.lenisInstance.on('scroll', updateCardStack);
+  }
+
+  updateCardStack();
+}
+
 
 
 
