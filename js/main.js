@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollProgress();
   initFaqAccordion();
   initScrollReveal();
+  initTestimonialsCarousel();
 });
 
 /* ==========================================================================
@@ -736,5 +737,66 @@ function initFaqAccordion() {
     });
   });
 }
+
+/* ==========================================================================
+   10. Testimonials Horizontal Carousel (Graft Style Drag & Nav Controls)
+   ========================================================================== */
+function initTestimonialsCarousel() {
+  const track = document.getElementById('testimonials-track');
+  const prevBtn = document.getElementById('testimonials-nav-prev');
+  const nextBtn = document.getElementById('testimonials-nav-next');
+  if (!track) return;
+
+  function getStepWidth() {
+    const card = track.querySelector('.testimonial-card-editorial');
+    if (!card) return 360;
+    const style = window.getComputedStyle(track);
+    const gap = parseFloat(style.gap) || 24;
+    return card.offsetWidth + gap;
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      track.scrollBy({ left: -getStepWidth(), behavior: 'smooth' });
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      track.scrollBy({ left: getStepWidth(), behavior: 'smooth' });
+    });
+  }
+
+  // Smooth mouse drag-to-scroll for desktop users
+  let isDown = false;
+  let startX = 0;
+  let scrollLeft = 0;
+
+  track.addEventListener('mousedown', (e) => {
+    isDown = true;
+    track.classList.add('active');
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+  });
+
+  track.addEventListener('mouseleave', () => {
+    isDown = false;
+    track.classList.remove('active');
+  });
+
+  track.addEventListener('mouseup', () => {
+    isDown = false;
+    track.classList.remove('active');
+  });
+
+  track.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    const walk = (x - startX) * 1.6; // Scroll speed multiplier
+    track.scrollLeft = scrollLeft - walk;
+  });
+}
+
 
 
