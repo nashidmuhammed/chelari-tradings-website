@@ -29,7 +29,7 @@
   // Review text templates (natural customer reviews)
   const REVIEW_TEMPLATES = {
     template1:
-      "I received a gift from Chelari Tradings. Great showroom experience in Chelari with quality architectural glass, 100% Gurjan marine plywood, designer door handles, and modern kitchen accessories. The staff was very helpful and professional.",
+      "I received a gift coupon from Chelari Tradings and would be happy to redeem it on my next purchase.",
     template2:
       "Visited Chelari Tradings and received a gift. Excellent collection of IS:710 marine plywood, fluted glass partitions, and smart biometric locks. Transparent guidance and prompt service.",
     template3:
